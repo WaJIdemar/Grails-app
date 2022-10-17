@@ -8,10 +8,10 @@
 <body>
 <div class="nav" role="navigation">
     <ul>
-        <li><a href="${createLink(uri: '/')}">New Search</a></li>
+        <li><a href="${createLink(uri: '/')}"><g:message code="search.new"/> </a></li>
     </ul>
 </div>
 
-<p>"По вашему запросу ничего не найдено"</p>
+<p><g:message code="search.failed"/></p>
 </body>
 </html>

@@ -7,25 +7,26 @@
 <body>
 <div class="nav" role="navigation">
     <ul>
-        <li><a href="${createLink(uri: '/')}">New Search</a></li>
+        <li><a class="buttons" href="${createLink(uri: '/')}"><g:message code="search.new"/></a></li>
     </ul>
 </div>
 
 <div id="list-hotel" class="content scaffold-list" role="main">
-    <h1>Search result</h1>
-
-    <h1>Total: "${hotelList.size()}"
-        <table>
+    <h1 class="text-monospace"><g:message code="search.result.label"/> </h1>
+    <h1 class="text-monospace"><g:message code="search.hotel.name.label"/> "${searchText}"</h1>
+    <h1 class="text-monospace"><g:message code="search.country.name.label"/> "${countryName}"</h1>
+    <h1 class="text-monospace"><g:message code="search.all.hotels.label"/> "${hotelList.size()}"</h1>
+        <table class="table-bordered">
             <tr>
-                <th>Name</th>
-                <th>Stardom</th>
+                <th><g:message code="search.hotel.name.table.label"/> </th>
+                <th><g:message code="search.hotel.stardom.table.label"/> </th>
             </tr>
             <g:each in="${hotelList}" var="hotel">
                 <tr>
                     <td>
                         ${hotel.name}
                         <g:if test="${hotel.website != null}">
-                            <br><a href="${hotel.website}" target="_blank">Go to website</a>
+                            <br><a href="${hotel.website}" target="_blank"><g:message code="search.hotel.website.url.label"/> </a>
                         </g:if>
                     </td>
                     <td>
@@ -34,7 +35,6 @@
                 </tr>
             </g:each>
         </table>
-        %{--    <f:table collection="${hotelList}" properties="name, stardom"/>--}%
         <div class="pagination">
             <g:paginate total="${hotelCount ?: 0}"/>
         </div>

@@ -3,23 +3,19 @@ package myapp
 class SearchHotelController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    SearchHotelService searchHotelService
+
     def index() {
-        def country = Country.createCriteria()
-        country = country.get {
-            like("name", params.country.name)
-        }
-        def hotelList = Hotel.createCriteria()
-        def result = hotelList.list {
-            ilike("name", "%${params.searchText}%")
-            and {
-                eq("country", country)
-            }
-            order("stardom", "desc")
-            order("name")
-        }
-        if (result.size() == 0) {
-            render(view: "notFound")
+        def result
+        if(params.searchText != "")
+             result = searchHotelService.searchHotelInCountry(params.searchText, params.country.id)
+        if (result == null || result.size() == 0) {
+            redirect(action: "notFound")
         } else
-            respond(result)
+            respond("hotelList": result, "searchText": params.searchText, "countryName": Country.get(params.country.id).name)
+    }
+
+    def notFound(){
+        render(view: "notFound")
     }
 }

@@ -6,6 +6,12 @@
 </head>
 
 <body>
-<p>"По вашему запросу ничего не найдено"</p>
+<div class="nav" role="navigation">
+    <ul>
+        <li><a href="${createLink(uri: '/')}"><g:message code="search.new"/> </a></li>
+    </ul>
+</div>
+
+<p><g:message code="search.failed"/></p>
 </body>
 </html>

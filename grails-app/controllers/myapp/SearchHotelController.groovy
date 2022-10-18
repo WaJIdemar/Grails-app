@@ -10,12 +10,12 @@ class SearchHotelController {
         if(params.searchText != "")
              result = searchHotelService.searchHotelInCountry(params.searchText, params.country.id)
         if (result == null || result.size() == 0) {
-            redirect(action: "notFound")
+            redirect(action: "notFound", params: ["searchText": params.searchText, "country.id": params.country.id])
         } else
             respond("hotelList": result, "searchText": params.searchText, "countryName": Country.get(params.country.id).name)
     }
 
     def notFound(){
-        render(view: "notFound")
+        respond(searchText: params.searchText, countryName:Country.get(params.country.id).name)
     }
 }

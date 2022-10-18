@@ -10,7 +10,7 @@ grails:
             events: false
 info:
     app:
-        name: 'Gr'
+        name: 'Grails-app'
         version: '0.1'
         grailsVersion: '4.0.10'
 spring:

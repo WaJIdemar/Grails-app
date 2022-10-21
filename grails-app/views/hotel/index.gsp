@@ -4,7 +4,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'hotel.label', default: 'myapp.Hotel')}" />
         <g:set var="entitiesName" value="${message(code:'hotels.label')}"/>
-        <g:set var="hotelName" value="${message(code: 'hotel.name.label')}"/>
+        <g:set var="hotelNameHint" value="${message(code: 'hotel.name.label')}"/>
         <g:set var="searchButton" value="${message(code: 'search.button.label')}"/>
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
@@ -17,8 +17,8 @@
             </ul>
         </div>
         <g:form controller="Hotel" action="search"  >
-            <label><g:message code="search.label"/> </label>
-            <g:textField name="searchText" value="${hotelName}"/>
+            <label class="text-monospace"><g:message code="search.label"/> </label>
+            <g:field name="searchText" type="text"  placeholder="${hotelNameHint}"/>
             <g:submitButton  name="search" value="${searchButton}"/>
         </g:form>
         <div id="list-hotel" class="content scaffold-list" role="main">
@@ -29,7 +29,7 @@
             <f:table collection="${hotelList}" />
 
             <div class="pagination">
-                <g:paginate total="${hotelCount ?: 0}" />
+                <g:paginate total="${hotelCount ?: 0}"/>
             </div>
         </div>
     </body>

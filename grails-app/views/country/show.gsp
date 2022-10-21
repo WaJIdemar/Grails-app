@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'country.label', default: 'myapp.Country')}" />
-        <g:set var="entitiesName" value="${message(code:'countries.label')}"/>
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <g:set var="entityName" value="${message(code: 'country.label', default: 'Country')}" />
+        <g:set var="entitiesName" value="${message(code:'countries.label', default: 'Countries')}"/>
+        <g:set var="showEntityName" value="${message(code: 'country.show.label', default: 'Country')}"/>
+        <title><g:message code="default.show.label" args="[showEntityName]" /></title>
     </head>
     <body>
         <a href="#show-country" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -16,7 +17,7 @@
             </ul>
         </div>
         <div id="show-country" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1><g:message code="default.show.label" args="[showEntityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>

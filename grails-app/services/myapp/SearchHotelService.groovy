@@ -1,32 +1,32 @@
 package myapp
 
+import grails.gorm.PagedResultList
 import grails.gorm.transactions.Transactional
 
 @Transactional
 class SearchHotelService {
-
-    List<Hotel> searchHotelInCountry(String hotelName,String countryId) {
+    PagedResultList searchHotelInCountry(String hotelName, String countryId, int max, int offset) {
         def country = Country.get(countryId)
         def hotelList = Hotel.createCriteria()
-        List<Hotel> result = hotelList.list {
+        PagedResultList result = hotelList.list (max: max, offset: offset) {
             ilike("name", "%${hotelName}%")
             and {
                 eq("country", country)
             }
             order("stardom", "desc")
             order("name")
-        } as List<Hotel>
+        } as PagedResultList
 
-        return result 
+        return result
     }
 
-    List<Hotel> searchHotel(String hotelName){
+    PagedResultList searchHotel(String hotelName, int max, int offset){
         def hotelList = Hotel.createCriteria()
-        List<Hotel> result = hotelList.list {
+        PagedResultList result = hotelList.list(max: max, offset: offset) {
             ilike("name", "%${hotelName}%")
             order("stardom", "desc")
             order("name")
-        } as List<Hotel>
+        } as PagedResultList
 
         return result
     }

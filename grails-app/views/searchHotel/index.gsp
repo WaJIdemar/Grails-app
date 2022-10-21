@@ -1,42 +1,36 @@
+<%@ page import="myapp.Country" %>
+<!doctype html>
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Search</title>
+    <title>Поиск</title>
+    <g:set var="searchButton" value="${message(code: 'search.new')}"/>
+    <g:set var="hotelNameHint" value="${message(code: 'hotel.name.label')}"/>
 </head>
 
 <body>
 <div class="nav" role="navigation">
     <ul>
-        <li><a class="buttons" href="${createLink(uri: '/')}"><g:message code="search.new"/></a></li>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
     </ul>
 </div>
 
 <div id="list-hotel" class="content scaffold-list" role="main">
+    <g:form controller="searchHotel" action="index">
+        <label class="text-monospace"><g:message code="search.label"/></label>
+        <g:field name="searchText" type="text"  placeholder="${hotelNameHint}" value="${hotelName}"/>
+        <g:submitButton name="search" value="${searchButton}"/>
+        <label class="text-monospace"><g:message code="search.country.name.label"/></label>
+        <g:select optionKey="id" name="countryId" from='${Country.list()}' value="${country?.id}">
+        </g:select>
+    </g:form>
     <h1 class="text-monospace"><g:message code="search.result.label"/> </h1>
-    <h1 class="text-monospace"><g:message code="search.hotel.name.label"/> "${searchText}"</h1>
-    <h1 class="text-monospace"><g:message code="search.country.name.label"/> "${countryName}"</h1>
-    <h1 class="text-monospace"><g:message code="search.all.hotels.label"/> "${hotelList.size()}"</h1>
-        <table class="table-bordered">
-            <tr>
-                <th><g:message code="search.hotel.name.table.label"/> </th>
-                <th><g:message code="search.hotel.stardom.table.label"/> </th>
-            </tr>
-            <g:each in="${hotelList}" var="hotel">
-                <tr>
-                    <td>
-                        ${hotel.name}
-                        <g:if test="${hotel.website != null}">
-                            <br><a href="${hotel.website}" target="_blank"><g:message code="search.hotel.website.url.label"/> </a>
-                        </g:if>
-                    </td>
-                    <td>
-                        ${hotel.stardom}
-                    </td>
-                </tr>
-            </g:each>
-        </table>
+    <h1 class="text-monospace"><g:message code="search.all.hotels.label"/> "${hotelCount}"</h1>
+    <f:table collection="${hotelList}" template="tableForHotelWithWebSite" myProperty="Template: view/templates/_fields/_tableForHotelWithWebSite.gsp"
+    properties="name, stardom"/>
+
         <div class="pagination">
-            <g:paginate total="${hotelCount ?: 0}"/>
+            <g:paginate total="${hotelCount ?: 0}" max="${maxCount}" id="paginate" />
         </div>
 </div>
 </body>

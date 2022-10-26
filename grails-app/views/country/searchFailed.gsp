@@ -1,15 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <title>Страна не надена</title>
     <meta name="layout" content="main">
     <g:set var="searchButton" value="${message(code: 'search.new')}"/>
     <g:set var="countryNameHint" value="${message(code: 'country.name.label')}"/>
+    <title><g:message code="search.failed.title"/></title>
 </head>
 
 <body>
 <div class="nav" role="navigation">
     <ul>
+        <li><a class="buttons" href="${createLink(uri: '/')}"><g:message code="hotel.all.label"
+                                                                              default="All Hotels"/></a></li>
         <li><a class="buttons" href="${createLink(uri: '/country')}"><g:message code="country.all.label"
                                                                                 default="All Countries"/></a></li>
     </ul>

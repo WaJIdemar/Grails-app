@@ -5,11 +5,11 @@ class CountryController {
 
     SearchCountryService searchCountryService
 
-    int max = 5
-    int offset = 0
+    int max = 10
 
     def search() {
         def result
+        int offset = 0
         if (params.id == 'paginate') {
             offset = params.offset as int
             result = searchCountryService.searchCountry(flash.searchText as String, max, offset)

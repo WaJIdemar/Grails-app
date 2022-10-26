@@ -10,8 +10,10 @@
         <a href="#edit-hotel" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.hotel.label" args="[entitiesName]" /></g:link></li>
+                <li><a class="buttons" href="${createLink(uri: '/')}"><g:message code="hotel.all.label"
+                                                                                 default="All Hotels"/></a></li>
+                <li><a class="buttons" href="${createLink(uri: '/country')}"><g:message code="country.all.label"
+                                                                                        default="All Countries"/></a></li>
                 <li><g:link class="create" action="create"><g:message code="default.new.hotel.label" args="[entityName]" /></g:link></li>
             </ul>
         </div>

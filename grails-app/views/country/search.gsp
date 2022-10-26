@@ -2,14 +2,17 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Поиск страны</title>
     <g:set var="searchButton" value="${message(code: 'search.new')}"/>
     <g:set var="countryNameHint" value="${message(code: 'country.name.label')}"/>
+    <g:set var="entityName" value="${message(code: 'country.search.title', default: 'myapp.Country')}" />
+    <title><g:message code="default.search.label" args="[entityName]"/></title>
 </head>
 
 <body>
 <div class="nav" role="navigation">
     <ul>
+        <li><a class="buttons" href="${createLink(uri: '/')}"><g:message code="hotel.all.label"
+                                                                              default="All Hotels"/></a></li>
         <li><a class="buttons" href="${createLink(uri: '/country')}"><g:message code="country.all.label"
                                                                                 default="All Countries"/></a></li>
     </ul>

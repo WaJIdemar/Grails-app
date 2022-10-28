@@ -7,7 +7,7 @@
     <g:set var="entitiesName" value="${message(code: 'hotels.label')}"/>
     <g:set var="hotelNameHint" value="${message(code: 'hotel.name.label')}"/>
     <g:set var="searchButton" value="${message(code: 'search.button.label')}"/>
-    <title><g:message code="default.list.label" args="[entityName]"/></title>
+    <title><g:message code="default.list.hotel.label" args="[entitiesName]"/></title>
 </head>
 
 <body>

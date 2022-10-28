@@ -29,7 +29,7 @@
 </g:form>
 <h1 class="text-monospace"><g:message code="search.result.label"/></h1>
 
-<h1 class="text-monospace"><g:message code="search.all.hotels.label"/> "${hotelCount}"</h1>
+<h1 class="text-monospace"><g:message code="search.all.hotels.label"/> ${hotelCount}</h1>
 
 <div id="list-hotel" class="content scaffold-list" role="main">
     <f:table collection="${hotelList}" template="tableForHotelWithWebSite" myProperty="Template: view/templates/_fields/_tableForHotelWithWebSite.gsp"

@@ -17,17 +17,17 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" role="navigation">
+
     <a class="navbar-brand" href="/#"><asset:image  src="logo.png" alt="My logo"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+    <h1 class="text-light"><a href="/#"><g:message code="default.site.title"/></a></h1>
     <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarContent">
         <ul class="nav navbar-nav ml-auto">
             <g:pageProperty name="page.nav"/>
         </ul>
     </div>
-
 </nav>
 
 <g:layoutBody/>

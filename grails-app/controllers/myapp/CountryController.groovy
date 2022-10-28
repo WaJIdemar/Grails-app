@@ -17,9 +17,8 @@ class CountryController {
             respond(countryList: result, countryName: flash.searchText, countryCount: result.getTotalCount(),
                     maxCount: max)
         } else {
-            if (params.searchText != "")
-                result = searchCountryService.searchCountry(params.searchText, max, offset)
-            if (result == null || result.getTotalCount() == 0) {
+            result = searchCountryService.searchCountry(params.searchText, max, offset)
+            if (result.getTotalCount() == 0) {
                 redirect(action: "searchFailed", params: params)
             } else {
                 flash.searchText = params.searchText

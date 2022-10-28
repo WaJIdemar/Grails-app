@@ -23,7 +23,7 @@
     <g:submitButton  name="search" value="${searchButton}"/>
 </g:form>
 <h1 class="text-monospace"><g:message code="search.result.label"/> </h1>
-<h1 class="text-monospace"><g:message code="search.all.countries.label"/> "${countryCount}"</h1>
+<h1 class="text-monospace"><g:message code="search.all.countries.label"/> ${countryCount}</h1>
 <div id="list-hotel" class="content scaffold-list" role="main">
     <f:table collection="${countryList}" />
 

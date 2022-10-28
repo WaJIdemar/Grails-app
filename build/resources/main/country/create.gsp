@@ -4,18 +4,21 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'country.label', default: 'myapp.Country')}" />
         <g:set var="entitiesName" value="${message(code:'countries.label')}"/>
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <g:set var="entityTitle" value="${message(code:'country.show.label')}"/>
+        <title><g:message code="default.create.label" args="[entityTitle]" /></title>
     </head>
     <body>
         <a href="#create-country" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.country.label" args="[entitiesName]" /></g:link></li>
+                <li><a class="buttons" href="${createLink(uri: '/')}"><g:message code="hotel.all.label"
+                                                                                 default="All Hotels"/></a></li>
+                <li><a class="buttons" href="${createLink(uri: '/country')}"><g:message code="country.all.label"
+                                                                                        default="All Countries"/></a></li>
             </ul>
         </div>
         <div id="create-country" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1><g:message code="default.create.label" args="[entityTitle]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
